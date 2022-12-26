@@ -39,6 +39,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lNakit = new System.Windows.Forms.Label();
             this.lKart = new System.Windows.Forms.Label();
             this.lKullanici = new System.Windows.Forms.Label();
@@ -196,6 +198,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lNakit);
             this.panel1.Controls.Add(this.lKart);
             this.panel1.Controls.Add(this.lKullanici);
@@ -209,6 +213,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(715, 123);
             this.panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(447, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(447, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "label3";
             // 
             // lNakit
             // 
@@ -229,6 +251,7 @@
             this.lKart.TabIndex = 5;
             this.lKart.Text = "Kart";
             this.lKart.Visible = false;
+            this.lKart.Click += new System.EventHandler(this.lKart_Click);
             // 
             // lKullanici
             // 
@@ -239,6 +262,7 @@
             this.lKullanici.Size = new System.Drawing.Size(116, 22);
             this.lKullanici.TabIndex = 4;
             this.lKullanici.Text = "KULLANICI";
+            this.lKullanici.Click += new System.EventHandler(this.lKullanici_Click);
             // 
             // chSatisIadeIslemi
             // 
@@ -256,6 +280,7 @@
             this.chSatisIadeIslemi.TabIndex = 3;
             this.chSatisIadeIslemi.Text = "Satış Yapılıyor";
             this.chSatisIadeIslemi.UseVisualStyleBackColor = false;
+            this.chSatisIadeIslemi.CheckedChanged += new System.EventHandler(this.chSatisIadeIslemi_CheckedChanged);
             // 
             // lbBarkod
             // 
@@ -274,6 +299,7 @@
             this.tBarkod.Name = "tBarkod";
             this.tBarkod.Size = new System.Drawing.Size(292, 38);
             this.tBarkod.TabIndex = 0;
+            this.tBarkod.TextChanged += new System.EventHandler(this.tBarkod_TextChanged);
             this.tBarkod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBarkod_KeyDown);
             this.tBarkod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBarkod_KeyPress);
             // 
@@ -297,6 +323,7 @@
             this.tbMiktar.TabStop = false;
             this.tbMiktar.Text = "1";
             this.tbMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbMiktar.TextChanged += new System.EventHandler(this.tbMiktar_TextChanged);
             this.tbMiktar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMiktar_KeyPress);
             // 
             // gridSatisListesi
@@ -356,6 +383,7 @@
             this.gridSatisListesi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSatisListesi.Size = new System.Drawing.Size(715, 606);
             this.gridSatisListesi.TabIndex = 1;
+            this.gridSatisListesi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSatisListesi_CellContentClick);
             // 
             // Barkod
             // 
@@ -1711,7 +1739,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox chSatisIadeIslemi;
         private System.Windows.Forms.Label lbBarkod;
-        private System.Windows.Forms.TextBox tBarkod;
         private System.Windows.Forms.Label lbMiktar;
         private System.Windows.Forms.TextBox tbMiktar;
         private System.Windows.Forms.DataGridView gridSatisListesi;
@@ -1797,10 +1824,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunGrup;
         private System.Windows.Forms.DataGridViewTextBoxColumn KDV;
         private System.Windows.Forms.DataGridViewTextBoxColumn KDVTutari;
-        private System.Windows.Forms.Label lKullanici;
         public System.Windows.Forms.Label lNakit;
         public System.Windows.Forms.Label lKart;
         public System.Windows.Forms.TextBox tbGenelToplam;
+        internal System.Windows.Forms.Label lKullanici;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox tBarkod;
     }
 }
 

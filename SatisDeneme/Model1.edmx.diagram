@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="MarketDBModel.sysdiagrams" Width="1.5" PointX="10.5" PointY="0.75" />
         <EntityTypeShape EntityType="MarketDBModel.Barkod" Width="1.5" PointX="12.125" PointY="0.75" />
         <EntityTypeShape EntityType="MarketDBModel.StokHareket" Width="1.5" PointX="8.875" PointY="0.75" />
+        <EntityTypeShape EntityType="MarketDBModel.Kullanici" Width="1.5" PointX="0.625" PointY="4.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

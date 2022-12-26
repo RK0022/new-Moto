@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,7 +33,7 @@ namespace SatisDeneme
             bYuzTl.Text = 100.ToString("C2");
             bIkiYuztl.Text = 200.ToString("C2");
         }
-        private void HizliButonDoldur() // hızlı ürünlerin görünüşü
+        private void HizliButonDoldur() // hızlı ürünlerin görünüFşü
         {
             var hizliurun = db.HizliUrun.ToList();
             foreach (var item in hizliurun)
@@ -168,27 +169,16 @@ namespace SatisDeneme
 
         }
 
-        private void gridSatisListesi_CellContentClick(object sender, DataGridViewCellEventArgs e, double miktar, string i) // listeden silme işlemi
+        private void gridSatisListesi_CellContentClick(object sender, DataGridViewCellEventArgs e) // listeden silme işlemi
         {
-            int satirsayisi = gridSatisListesi.Rows.Count;
-            if (e.ColumnIndex == 6) // sil 6. indexte
+
             {
-                gridSatisListesi.Rows[satirsayisi].Cells["Miktar"].Value = miktar;
-                if (miktar > 1)
-                {
 
-                    miktar -= 1;
-                    gridSatisListesi.Rows[satirsayisi].Cells["Toplam"].Value = Math.Round(Convert.ToDouble(gridSatisListesi.Rows[satirsayisi].Cells["Miktar"].Value) / Convert.ToDouble(gridSatisListesi.Rows[satirsayisi].Cells["Fiyat"].Value), 2);
+                gridSatisListesi.Rows.Remove(gridSatisListesi.CurrentRow); // geçerli satırı sil
+                gridSatisListesi.ClearSelection();
+                GenelToplam(); // genel toplamdan silinen ürünün fiyatı eksililyor
+                tBarkod.Focus();
 
-                }
-
-                else
-                {
-                    gridSatisListesi.Rows.Remove(gridSatisListesi.CurrentRow); // geçerli satırı sil
-                    gridSatisListesi.ClearSelection();
-                    GenelToplam(); // genel toplamdan silinen ürünün fiyatı eksililyor
-                    tBarkod.Focus();
-                }
             }
         }
 
@@ -328,13 +318,13 @@ namespace SatisDeneme
             Temizle();
         }
 
-        private void Temizle()
+        public void Temizle()
         {
             tbMiktar.Text = "1";
             tBarkod.Clear();
             tbOdenen.Clear();
             tbParaUstu.Clear();
-
+            tbGenelToplam.Clear();
             chSatisIadeIslemi.Checked = false;
             tTusTakimi.Clear();
             tTusTakimi.Text = "0";
@@ -475,6 +465,38 @@ namespace SatisDeneme
                 NakitKart f = new NakitKart();
                 f.ShowDialog();
             }
+        }
+
+        private void chSatisIadeIslemi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chSatisIadeIslemi.Checked)
+            {
+                chSatisIadeIslemi.Text = "İade yapılıyor";
+            }
+            else
+            {
+                chSatisIadeIslemi.Text = "satış yapılıyor";
+            }
+        }
+
+        private void lKullanici_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbMiktar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tBarkod_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lKart_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

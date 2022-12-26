@@ -16,17 +16,31 @@ namespace SatisDeneme
         {
             InitializeComponent();
         }
-
+        Form1 a=new Form1();
         private void tNakit_KeyDown(object sender, KeyEventArgs e)
         {
             if (tNakit.Text != "")
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    Hesapla();
+                    
+                        Form1 f = (Form1)Application.OpenForms["Form1"];
+                        double nakit = Islemler.DoubleYap(tNakit.Text);
+                        double tbGenelToplam = Islemler.DoubleYap(f.tbGenelToplam.Text);
+                        double kart = tbGenelToplam - nakit;
+                        f.label4.Text = nakit.ToString("C2");
+                        f.label3.Text = kart.ToString("C2");
+                        f.SatisYap("kart-nakit");
+                        this.Hide();
+
+                        Hesapla();
+
+
                 }
+                a.Temizle();
             }
         }
+        
 
         private void TusTakimi(object sender, EventArgs e)
         {

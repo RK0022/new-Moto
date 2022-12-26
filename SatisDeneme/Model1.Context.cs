@@ -35,5 +35,6 @@ namespace SatisDeneme
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Barkod> Barkod { get; set; }
         public virtual DbSet<StokHareket> StokHareket { get; set; }
+        public virtual DbSet<Kullanici> Kullanici { get; set; }
     }
 }

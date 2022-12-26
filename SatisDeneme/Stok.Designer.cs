@@ -49,6 +49,7 @@
             this.tUrunAra = new System.Windows.Forms.TextBox();
             this.lUrunAra = new System.Windows.Forms.Label();
             this.gridListe = new System.Windows.Forms.DataGridView();
+            this.lKullanici = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,6 +82,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.panelTarihler);
             this.splitContainer1.Panel1.Controls.Add(this.panel2);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -266,6 +268,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer2.Panel1.Controls.Add(this.lKullanici);
             this.splitContainer2.Panel1.Controls.Add(this.tUrunAra);
             this.splitContainer2.Panel1.Controls.Add(this.lUrunAra);
             // 
@@ -311,6 +314,16 @@
             this.gridListe.Size = new System.Drawing.Size(714, 586);
             this.gridListe.StandardTab = true;
             this.gridListe.TabIndex = 1;
+            // 
+            // lKullanici
+            // 
+            this.lKullanici.AutoSize = true;
+            this.lKullanici.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lKullanici.Location = new System.Drawing.Point(505, 32);
+            this.lKullanici.Name = "lKullanici";
+            this.lKullanici.Size = new System.Drawing.Size(116, 22);
+            this.lKullanici.TabIndex = 35;
+            this.lKullanici.Text = "KULLANICI";
             // 
             // Stok
             // 
@@ -367,5 +380,6 @@
         public System.Windows.Forms.Label lUrunAra;
         public System.Windows.Forms.TextBox tUrunAra;
         public System.Windows.Forms.DataGridView gridListe;
+        internal System.Windows.Forms.Label lKullanici;
     }
 }
